@@ -10,7 +10,7 @@ This repository contains scripts used to generate back-filled income reports for
 - Bash 4+
 - ZFS (`apt install zfsutils-linux`)
 - UFW enabled
-- jq 1.5+
+- jq 1.5+ (`apt install jq`)
 - sqlite3 (`apt install sqlite3 libsqlite3-dev`)
 - `gaiad`/`gaiacli` built to appropriate version (Hub 1: `0.33.2`, Hub 2: `0.34.9`)
 - password-less `sudo` for running user
@@ -21,15 +21,15 @@ This repository contains scripts used to generate back-filled income reports for
 Make a ZFS pool, and a filesystem to contain your chosen chain:
 
 ```
-sudo zpool create -f cosmoslike-legacy-reports /dev/sda
-sudo zfs create cosmos-legacy-reports/hub2
-sudo chown -R $USER /cosmos-legacy-reports/hub2
+sudo zpool create -f cosmos-legacy-reports /dev/sda
+sudo zfs create cosmos-legacy-reports/hub1
+sudo chown -R $USER /cosmos-legacy-reports/hub1
 ```
 
 Setup gaiad/equivalent, for example:
 
 ```
-gaiad0_34_9 init hub2reportstmp --home /cosmos-legacy-reports/hub2
+gaiad0_34_9 init hub1reportstmp --home /cosmos-legacy-reports/hub1
 ```
 
 Update configs:
